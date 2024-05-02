@@ -1,0 +1,13 @@
+class Solution(object):
+    def convert(self, s, numRows):
+        if numRows == 1:
+            return s
+        result = ''
+        for r in range(numRows):
+            q = 2 * (numRows - 1)
+            for n in range( r, len(s), q):
+                result += s[n]
+                if r != 0 and r != (numRows - 1) and (n + q - 2 *r) < len(s):
+                    result += s[n + q - 2 * r]
+        return result
+        
